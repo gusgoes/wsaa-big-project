@@ -211,3 +211,5 @@ config.py
 
 # personal private notes
 .meu_guia_pessoal.txt
+.meu_guia_audio.txt
+guia_audio_wsaa.mp3
