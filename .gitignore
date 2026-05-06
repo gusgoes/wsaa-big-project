@@ -208,3 +208,6 @@ __marimo__/
 
 #to safe apikey
 config.py
+
+# personal private notes
+.meu_guia_pessoal.txt

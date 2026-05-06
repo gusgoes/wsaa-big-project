@@ -4,10 +4,8 @@ Integration tests for the Books REST API.
 Uses Flask's built-in test client — the server does NOT need to be running,
 but MySQL must be running and the wsaa database must exist (run init_db.py first).
 
-Run from the project/ folder:
+Run from the repository root (wsaa-big-project/):
     python -m pytest tests/ -v
-    # or
-    python -m unittest discover -s tests -v
 """
 
 import sys

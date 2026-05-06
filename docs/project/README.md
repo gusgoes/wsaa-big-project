@@ -1,14 +1,12 @@
 # Project Setup and Run Guide
 
-Use this exact sequence from the repository root:
-
-`...\25-26-8640----WEB-SERVICES-AND-APPLICATIONS`
+All commands run from the **repository root** (`wsaa-big-project/`).
 
 ## 1. Prerequisites
 
 - Python 3.11+
 - MySQL Server running on localhost:3306
-- Virtual environment exists at `.venv`
+- A Python virtual environment with Flask and mysql-connector installed
 
 ## 2. Activate Virtual Environment (PowerShell)
 
@@ -26,14 +24,14 @@ Expected prompt starts with:
 ## 3. Install Dependencies
 
 ```powershell
-python -m pip install -r project\requirements.txt
+python -m pip install -r requirements.txt
 ```
 
 ## 4. Configure Database Credentials
 
 Create this file:
 
-`project\config\.env`
+`config\.env`
 
 Add:
 
@@ -44,10 +42,12 @@ DB_PASSWORD=your_mysql_password
 DB_NAME=wsaa
 ```
 
+See `config\.env.example` for reference.
+
 ## 5. Initialize Database and Table
 
 ```powershell
-python project\scripts\init_db.py
+python scripts\init_db.py
 ```
 
 Expected success:
@@ -59,7 +59,7 @@ Database and table ready
 ## 6. Run API
 
 ```powershell
-python project\src\app.py
+python src\app.py
 ```
 
 Expected:
@@ -100,13 +100,21 @@ Delete:
 Invoke-RestMethod -Uri http://127.0.0.1:5000/books/1 -Method DELETE
 ```
 
-## 8. Troubleshooting
+## 8. Run Automated Tests
 
-- `No module named mysql`
-Activate `.venv` first, then run commands again.
+```powershell
+python -m pytest tests/ -v
+```
+
+Expected: 18 passed
+
+## 9. Troubleshooting
+
+- `No module named flask` or `No module named mysql`
+Activate the virtual environment first, then run commands again.
 
 - `Access denied for user 'root'@'localhost'`
-Check `DB_PASSWORD` in `project\config\.env`.
+Check `DB_PASSWORD` in `config\.env`.
 
 - `Can't connect to MySQL server on localhost:3306`
-Start MySQL service, then rerun `init_db.py`.
+Start the MySQL service, then rerun `scripts\init_db.py`.
