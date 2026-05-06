@@ -1,0 +1,31 @@
+# Project Spec v1
+
+## Goal
+Build a Flask REST API for managing books for coursework demonstration.
+
+## Main Entity
+Name:book
+Fields:
+- id:
+- title:
+- author:
+- price:
+
+## API Endpoints (v1)
+- GET /books
+- GET /books/{id}
+- POST /books
+- PUT /books/{id}
+- DELETE /books/{id}
+
+## Data Layer
+- Database:wsaa
+- Table:book
+- Mapping rules:id -> id, title -> title, author -> author, price -> price
+
+## Definition of Done
+- [ ] API runs locally
+- [ ] CRUD works end-to-end
+- [ ] Error responses are clear
+- [ ] Setup steps documented
+- [ ] input validation for title, author, price >= 0
